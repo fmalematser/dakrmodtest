@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DarkModz3 Test</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <div id="login-screen" class="screen">
+    <h1>Login</h1>
+    <button id="google-login" class="btn google-btn">Login with Google</button>
+    <button id="facebook-login" class="btn fb-btn">Login with Facebook</button>
+  </div>
+
+  <div id="dashboard" class="screen hidden">
+    <header>
+      <div class="left-menu">
+        <button id="about-btn" class="btn neon-btn">About ▾</button>
+        <div id="about-dropdown" class="dropdown hidden">
+          <p>
+            About this site:<br />
+            Created by Shahid.<br />
+            Built with Firebase Authentication & Cyberpunk style.
+          </p>
+        </div>
+      </div>
+
+      <div class="right-menu">
+        <img id="user-avatar" class="avatar hidden" src="" alt="User Avatar" />
+        <div id="user-dropdown" class="dropdown hidden">
+          <a href="#" id="settings-link" class="dropdown-item">User Settings</a>
+          <button id="logout-btn" class="dropdown-item logout-btn">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h2>Welcome, <span id="user-name"></span>!</h2>
+      <div class="buttons-container">
+        <button class="btn neon-btn">
+          <span class="icon">⬇️</span> Download
+        </button>
+        <button class="btn neon-btn">
+          <span class="icon">� Discord</span> Discord
+        </button>
+        <button class="btn neon-btn">
+          <span class="icon">🎥</span> Tutorial
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Logout confirmation modal -->
+  <div id="logout-modal" class="modal hidden">
+    <div class="modal-content">
+      <p>Are you sure you want to log out?</p>
+      <div class="modal-buttons">
+        <button id="confirm-logout" class="btn neon-btn">Confirm</button>
+        <button id="cancel-logout" class="btn neon-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="authlogin.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
