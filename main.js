@@ -1,73 +1,73 @@
-window.onload = () => {
-  const loginScreen = document.getElementById("login-screen");
-  const mainContent = document.getElementById("main-content");
-  const userPhoto = document.getElementById("user-photo");
-  const profileSection = document.getElementById("profile-section");
-  const logoutModal = document.getElementById("logout-modal");
-  const logoutBtn = document.getElementById("logout-btn");
-  const cancelLogout = document.getElementById("cancel-logout");
-  const aboutBtn = document.getElementById("about-btn");
-  const aboutModal = document.getElementById("about-modal");
-  const closeAbout = document.getElementById("close-about");
+document.addEventListener("DOMContentLoaded", () => {
+  // About popup elements
+  const aboutBtn = document.getElementById("aboutBtn");
+  const aboutPopup = document.getElementById("aboutPopup");
+  const closeBtn = document.getElementById("closeAboutBtn");
 
-  const googleLoginBtn = document.getElementById("google-login");
-  const facebookLoginBtn = document.getElementById("facebook-login");
+  // User profile elements
+  const userProfile = document.getElementById("userProfile");
+  const userPhoto = document.getElementById("userPhoto");
 
-  const downloadBtn = document.getElementById("download-btn");
-  const discordBtn = document.getElementById("discord-btn");
-  const tutorialBtn = document.getElementById("tutorial-btn");
+  // Logout confirmation elements
+  const logoutConfirm = document.getElementById("logoutConfirm");
+  const confirmLogoutBtn = document.getElementById("confirmLogoutBtn");
+  const cancelLogoutBtn = document.getElementById("cancelLogoutBtn");
 
-  // Auth state check
-  auth.onAuthStateChanged(user => {
+  // Main buttons
+  const downloadBtn = document.getElementById("downloadBtn");
+  const discordBtn = document.getElementById("discordBtn");
+  const tutorialBtn = document.getElementById("tutorialBtn");
+
+  // Show About popup
+  aboutBtn.addEventListener("click", () => {
+    aboutPopup.style.display = "block";
+  });
+
+  // Hide About popup
+  closeBtn.addEventListener("click", () => {
+    aboutPopup.style.display = "none";
+  });
+
+  // User profile click => open user settings or logout confirmation
+  userProfile.addEventListener("click", () => {
+    logoutConfirm.style.display = "block";
+  });
+
+  // Logout confirmation buttons
+  confirmLogoutBtn.addEventListener("click", () => {
+    // Call your logout logic here, e.g., Firebase logout
+    firebase.auth().signOut().then(() => {
+      logoutConfirm.style.display = "none";
+      alert("You have been logged out.");
+      // Redirect or update UI after logout
+      location.reload();
+    });
+  });
+
+  cancelLogoutBtn.addEventListener("click", () => {
+    logoutConfirm.style.display = "none";
+  });
+
+  // Main buttons - replace links in () with your URLs
+  downloadBtn.addEventListener("click", () => {
+    window.open("ENTER_DOWNLOAD_LINK_HERE", "_blank");
+  });
+
+  discordBtn.addEventListener("click", () => {
+    window.open("ENTER_DISCORD_INVITE_LINK_HERE", "_blank");
+  });
+
+  tutorialBtn.addEventListener("click", () => {
+    window.open("ENTER_TUTORIAL_LINK_HERE", "_blank");
+  });
+
+  // Firebase Auth listener for showing user profile photo
+  firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      loginScreen.classList.add("hidden");
-      mainContent.classList.remove("hidden");
-      userPhoto.src = user.photoURL;
-      profileSection.classList.remove("hidden");
+      userPhoto.src = user.photoURL || "default-user.png"; // fallback image if no photo
+      userProfile.style.display = "block";
     } else {
-      loginScreen.classList.remove("hidden");
-      mainContent.classList.add("hidden");
-      profileSection.classList.add("hidden");
+      userProfile.style.display = "none";
     }
   });
-
-  // Google login
-  googleLoginBtn.addEventListener("click", () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
-  });
-
-  // Facebook login
-  facebookLoginBtn.addEventListener("click", () => {
-    const provider = new firebase.auth.FacebookAuthProvider();
-    auth.signInWithPopup(provider);
-  });
-
-  // Logout modal
-  userPhoto.addEventListener("click", () => {
-    logoutModal.classList.remove("hidden");
-  });
-
-  cancelLogout.addEventListener("click", () => {
-    logoutModal.classList.add("hidden");
-  });
-
-  logoutBtn.addEventListener("click", () => {
-    auth.signOut();
-    logoutModal.classList.add("hidden");
-  });
-
-  // About modal
-  aboutBtn.addEventListener("click", () => {
-    aboutModal.classList.remove("hidden");
-  });
-
-  closeAbout.addEventListener("click", () => {
-    aboutModal.classList.add("hidden");
-  });
-
-  // Add links here
-  downloadBtn.onclick = () => window.open("https://enter-download-link", "_blank");
-  discordBtn.onclick = () => window.open("https://enter-discord-link", "_blank");
-  tutorialBtn.onclick = () => window.open("https://enter-tutorial-link", "_blank");
-};
+});
