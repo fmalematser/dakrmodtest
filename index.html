@@ -2,58 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DarkModz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DarkModz3 - Cyberpunk Site</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <!-- Add any fonts or icons you use -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Profile section -->
-  <div id="profile-section">
-    <img id="user-photo" src="" alt="Profile" />
+  <!-- Top Left: User Profile Picture -->
+  <div id="userProfile" class="user-profile" style="display:none;">
+    <img id="userPhoto" src="" alt="User Photo" title="User Settings" />
   </div>
 
-  <!-- About section -->
-  <div id="about-btn">About</div>
+  <!-- Top Right: About Button -->
+  <button id="aboutBtn" class="about-button">About</button>
 
-  <!-- Login Section -->
-  <div id="login-screen">
-    <h1>Welcome to DarkModz</h1>
-    <button id="google-login">Login with Google</button>
-    <button id="facebook-login">Login with Facebook</button>
+  <!-- About Popup -->
+  <div id="aboutPopup" class="about-popup">
+    <p>This site was made by Shahid</p>
+    <button id="closeAboutBtn" class="close-button">Close</button>
   </div>
 
-  <!-- Main Content -->
-  <div id="main-content" class="hidden">
-    <button class="action-btn" id="download-btn">
-      ⬇ Download
+  <!-- Main Content: 3 buttons -->
+  <main class="main-content">
+    <button class="main-btn" id="downloadBtn">
+      <span>⬇️</span> Download
     </button>
-    <button class="action-btn" id="discord-btn">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord" class="icon"> Discord
+    <button class="main-btn" id="discordBtn">
+      <img src="discord-logo.svg" alt="Discord" class="icon" /> Discord
     </button>
-    <button class="action-btn" id="tutorial-btn">
-      🎥 Tutorial
+    <button class="main-btn" id="tutorialBtn">
+      <span>🎥</span> Tutorial
     </button>
+  </main>
+
+  <!-- Logout confirmation popup (optional) -->
+  <div id="logoutConfirm" class="logout-confirm" style="display:none;">
+    <p>Are you sure you want to logout?</p>
+    <button id="confirmLogoutBtn">Yes, Logout</button>
+    <button id="cancelLogoutBtn">Cancel</button>
   </div>
 
-  <!-- Logout Modal -->
-  <div id="logout-modal" class="modal hidden">
-    <div class="modal-content">
-      <p>Do you want to log out?</p>
-      <button id="logout-btn">Yes, log out</button>
-      <button id="cancel-logout">Cancel</button>
-    </div>
-  </div>
-
-  <!-- About Modal -->
-  <div id="about-modal" class="modal hidden">
-    <div class="modal-content">
-      <p>This website was created by Shahid.</p>
-      <button id="close-about">Close</button>
-    </div>
-  </div>
-
+  <!-- Your JS -->
   <script src="authlogin.js"></script>
   <script src="main.js"></script>
 </body>
