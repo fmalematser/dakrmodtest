@@ -3,52 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>DarkModz3 - Cyberpunk Site</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+  <title>DarkModz</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Fixed Title -->
-  <header class="header">
+  <header>
     <h1>DarkModz</h1>
   </header>
 
-  <!-- Top Left: User Profile Picture -->
-  <div id="userProfile" class="user-profile" style="display:none;">
-    <img id="userPhoto" src="" alt="User Photo" title="User Settings" />
-  </div>
-
-  <!-- Top Right: About Button -->
-  <button id="aboutBtn" class="about-button">About</button>
-
-  <!-- About Popup -->
-  <div id="aboutPopup" class="about-popup">
-    <p>This site was made by Shahid</p>
-    <button id="closeAboutBtn" class="close-button">Close</button>
-  </div>
-
-  <!-- Main Content: Vertical buttons -->
   <main class="main-content">
-    <button class="main-btn" id="downloadBtn">
-      <span>⬇️</span> Download
+    <button class="main-btn" id="downloadBtn" aria-label="Download">
+      <!-- Down arrow SVG icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="cyan" viewBox="0 0 24 24">
+        <path d="M12 16l-6-6h4V4h4v6h4z"/>
+        <path d="M6 18h12v2H6z"/>
+      </svg>
+      Download
     </button>
-    <button class="main-btn" id="discordBtn">
-      <img src="discord-logo.svg" alt="Discord" class="icon" /> Discord
+
+    <button class="main-btn" id="discordBtn" aria-label="Discord">
+      <!-- Discord SVG icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="cyan" viewBox="0 0 24 24">
+        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561 19.9 19.9 0 006.037 3.0855.0777.0777 0 00.0842-.0276c.4646-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057 13.0822 13.0822 0 01-1.872-.9014.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.119.099.246.1981.372.2924a.0766.0766 0 01-.006.1276 12.5283 12.5283 0 01-1.873.9015.0766.0766 0 00-.0407.106c.3604.698.7688 1.3628 1.225 1.9932a.076.076 0 00.0842.0286 19.9046 19.9046 0 006.038-3.086.0824.0824 0 00.0305-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1824 0-2.1568-1.0857-2.1568-2.419 0-1.3332.9554-2.4189 2.1568-2.4189 1.2109 0 2.1758 1.0952 2.1569 2.419 0 1.3332-.946 2.4189-2.1569 2.4189z"/>
+      </svg>
+      Discord
     </button>
-    <button class="main-btn" id="tutorialBtn">
-      <span>🎥</span> Tutorial
+
+    <button class="main-btn" id="tutorialBtn" aria-label="Tutorial">
+      <!-- Camera SVG icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="cyan" viewBox="0 0 24 24">
+        <path d="M20 5h-3.586l-2-2H9.586l-2 2H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 11a4 4 0 110-8 4 4 0 010 8zm6-6.5v2l3 1.5v-5l-3 1.5z"/>
+      </svg>
+      Tutorial
     </button>
   </main>
 
-  <!-- Logout confirmation popup -->
-  <div id="logoutConfirm" class="logout-confirm" style="display:none;">
-    <p>Are you sure you want to logout?</p>
-    <button id="confirmLogoutBtn">Yes, Logout</button>
-    <button id="cancelLogoutBtn">Cancel</button>
-  </div>
-
-  <!-- Your JS -->
-  <script src="authlogin.js"></script>
-  <script src="main.js"></script>
+  <script>
+    // Replace links with your own
+    document.getElementById('downloadBtn').onclick = () => window.location.href = 'ENTER_DOWNLOAD_LINK_HERE';
+    document.getElementById('discordBtn').onclick = () => window.location.href = 'ENTER_DISCORD_LINK_HERE';
+    document.getElementById('tutorialBtn').onclick = () => window.location.href = 'ENTER_TUTORIAL_LINK_HERE';
+  </script>
 </body>
 </html>
