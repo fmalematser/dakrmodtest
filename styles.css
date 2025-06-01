@@ -1,0 +1,96 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1117; /* Dark background */
+  color: cyan;
+  overflow-x: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #071019;
+  border-bottom: 2px solid cyan;
+  padding: 15px 0;
+  text-align: center;
+  z-index: 1000;
+  user-select: none;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: cyan;
+  text-shadow:
+    0 0 5px cyan,
+    0 0 10px cyan,
+    0 0 20px cyan;
+}
+
+.main-content {
+  margin-top: 80px; /* leave space for fixed header */
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  padding: 20px;
+}
+
+.main-btn {
+  background: transparent;
+  border: 2px solid cyan;
+  border-radius: 12px;
+  color: cyan;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 15px 40px;
+  width: 260px;
+  max-width: 90vw;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  box-shadow:
+    0 0 5px cyan,
+    0 0 10px cyan;
+}
+
+.main-btn:hover {
+  background-color: cyan;
+  color: #0d1117;
+  box-shadow:
+    0 0 15px cyan,
+    0 0 30px cyan;
+}
+
+.main-btn svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  .main-btn {
+    width: 90vw;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+  }
+}
